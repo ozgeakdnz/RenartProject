@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { getColorInfo } from '../services/api'; // getColorInfo stil/tema için kullanılıyor
+import { getColorInfo } from '../services/api'; 
 
 
 export default function ArtworkTile({ product }) {
-  // Varsayılan rengi/temayı 'yellow' (Klasik) olarak koruyalım
   const initial = 'yellow'; 
 
   const [currentColor, setCurrentColor] = useState(initial);
 
-  // Bu değerin backend'den geldiğini varsayıyoruz, bu yüzden doğrudan kullanılıyor.
-  // Bu değer 0 ile 1 arasında olmalı.
   const ratingValue = (product.popularityScore * 5); 
   const fullStars = Math.floor(ratingValue);
   const halfStar = ratingValue - fullStars >= 0.25 && ratingValue - fullStars <= 0.75;
@@ -18,7 +15,8 @@ export default function ArtworkTile({ product }) {
     <div className="product-card"> 
       <div className="image-wrap">
         <img
-          src={product.styleImages ? product.styleImages[currentColor] : 'https://placehold.co/400x400/f7f7f7/4a4a4a?text=Loading'}
+          // Düzeltme: product.images kullanılıyor
+          src={product.images ? product.images[currentColor] : 'https://placehold.co/400x400/f7f7f7/4a4a4a?text=Loading'}
           alt={product.name}
           onError={(e) => (e.target.src = 'https://placehold.co/400x400/f7f7f7/4a4a4a?text=Image')}
           className="product-image"
@@ -27,12 +25,13 @@ export default function ArtworkTile({ product }) {
 
       <div className="card-body">
 
-        <h4 className="product-title">{product.name || 'Sanat Eseri Başlığı'}</h4> 
+        <h4 className="product-title">{product.name || 'Ürün Başlığı'}</h4> 
         
         <p className="product-price">${product.price.toFixed(2)} <span className="price-unit">USD</span></p>
 
         <div className="color-row">
-          {product.styleImages && Object.entries(product.styleImages).map(([key, url]) => {
+          {/* Düzeltme: product.images kullanılıyor */}
+          {product.images && Object.entries(product.images).map(([key, url]) => {
             const info = getColorInfo(key); 
             const active = key === currentColor;
             return (
