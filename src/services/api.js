@@ -18,10 +18,10 @@ export const fetchProducts = async () => {
 export const getColorInfo = (key) => {
   switch (key.toLowerCase()) {
 
-    case 'yellow': return { hex: '#E6CA97', displayName: 'Klasik' };
-    case 'white': return { hex: '#D9D9D9', displayName: 'Modern' };
-    case 'rose': return { hex: '#E1A4A9', displayName: 'Soyut' };
-    default: return { hex: '#D9D9D9', displayName: 'Bilinmeyen Stil' };
+    case 'yellow': return { hex: '#E6CA97', displayName: 'Yellow Gold' };
+    case 'white': return { hex: '#D9D9D9', displayName: 'White Gold' };
+    case 'rose': return { hex: '#E1A4A9', displayName: 'Rose Gold' };
+    default: return { hex: '#D9D9D9', displayName: 'Unknown' };
   
   }
 };
