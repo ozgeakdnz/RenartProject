@@ -1,9 +1,10 @@
-const LIVE_API_BASE_URL = "https://backend-srv-wftl.onrender.com"; 
+const LIVE_API_BASE_URL = "https://renartprojesi.onrender.com"; 
 
 export const BASE_ARTWORK_PRICE = 101.00; 
 
 export const fetchProducts = async () => {
-    const response = await fetch(`${LIVE_API_BASE_URL}/api/artworks`); 
+    
+    const response = await fetch(`${LIVE_API_BASE_URL}/api/products`); 
         
     if (!response.ok) {
         throw new Error(`API hatası: ${response.status}`);
