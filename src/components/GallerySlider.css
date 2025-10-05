@@ -1,0 +1,225 @@
+@font-face { 
+    font-family: 'Avenir-Book'; 
+    src: url('../assets/fonts/avenir/Avenir-Book.ttf') format('truetype'); 
+    font-weight: 400; 
+}
+@font-face { 
+    font-family: 'Montserrat-Medium'; 
+    src: url('../assets/fonts/montserat/Montserrat-Medium.otf') format('opentype'); 
+    font-weight: 500; 
+}
+@font-face { 
+    font-family: 'Montserrat-Regular'; 
+    src: url('../assets/fonts/montserat/Montserrat-Regular.ttf') format('truetype'); 
+    font-weight: 400; 
+}
+
+.carousel-root { max-width: 1440px; margin: 0 auto; padding: 48px 24px 80px; background: #fff; }
+
+
+.carousel-header { 
+    text-align: center; 
+    margin-bottom: 28px; 
+    position: relative; 
+}
+
+.product-list-title { 
+    font-family: 'Avenir-Book'; 
+    font-size: 45px; 
+    margin: 0; 
+}
+
+.header-underline { height: 1px; width: 280px; background: #e3e3e3; margin: 12px auto 0; }
+
+.carousel-wrap { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+
+
+    padding: 0 40px; 
+}
+
+.arrow { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    border: none; 
+    background: transparent; 
+    box-shadow: none; 
+    font-size: 38px; 
+    font-weight: bold;
+    cursor: pointer; 
+    z-index: 5; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #111; 
+    padding: 0;
+}
+
+.arrow.left { left: 0; } 
+.arrow.right { right: 0; }
+
+.product-list { 
+    display: flex; 
+    gap: 30px; 
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
+    padding: 10px 20px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+.product-list::-webkit-scrollbar { display: none; }
+
+/* Masaüstü (4 Kart) */
+.product-card { 
+    flex: 0 0 calc(24% - 22.5px); 
+    background: #fff; 
+    border-radius: 14px; 
+    box-shadow: none; 
+    margin-bottom: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    transition: transform 0.2s; 
+}
+
+.image-wrap { 
+    height: 240px; 
+    background: #f7f7f7; 
+    border-radius: 14px 14px 0 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+}
+.product-image { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    display: block; 
+}
+.card-body { 
+    padding: 18px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+.product-title { 
+    font-family: 'Montserrat-Medium'; 
+    font-size: 15px; 
+    color: #222; 
+    margin: 0 0 10px 0; 
+}
+.product-price { 
+    font-family: 'Montserrat-Regular'; 
+    font-size: 15px; 
+    margin: 0 0 8px 0; 
+    color: #111; 
+}
+.product-price .price-unit { 
+    color: #111; 
+    font-size: 15px; 
+    font-family: 'Montserrat-Regular'; 
+    margin-left: 6px; 
+    font-weight: 400; 
+}
+.color-row { 
+    display: flex; 
+    gap: 8px; 
+    margin: 6px 0 6px 0; 
+    align-items: center; 
+}
+.color-selector { 
+    border: none; 
+    background: transparent; 
+    padding: 0; 
+    cursor: pointer; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    width: 26px; 
+    height: 26px; 
+}
+.color-selector.active { 
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06), inset 0 0 0 2px #00000010; 
+    border-radius: 50%; 
+}
+.color-dot { 
+    width: 18px; 
+    height: 18px; 
+    border-radius: 50%; 
+    border: 1px solid rgba(0,0,0,0.12); 
+    display: inline-block; 
+}
+.product-color-text { 
+    font-family: 'Avenir-Book'; 
+    font-size: 12px; 
+    color: #6f6f6f; 
+    margin: 8px 0; 
+}
+.rating-row { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+    margin-top: 6px; 
+    width: 100%; 
+}
+.stars { 
+    display: flex; 
+    gap: 4px; 
+}
+.rating-text { 
+    font-family: 'Avenir-Book'; 
+    font-size: 14px; 
+    color: #222; 
+    margin-left: 0; 
+}
+
+
+@media (max-width: 1024px) {
+  .carousel-wrap { padding: 0 20px; } 
+  .arrow.left { left: 0; } 
+  .arrow.right { right: 0; }
+  
+  .product-list { padding: 10px 15px; gap: 20px; }
+  .product-card { flex: 0 0 calc(33.333% - 13.333px); } 
+  .image-wrap { height: 220px; }
+  .product-list-title { font-size: 38px; }
+}
+
+@media (max-width: 768px) {
+    .carousel-wrap { padding: 0 10px; } 
+    .arrow.left { left: 0; } 
+    .arrow.right { right: 0; }
+
+    .product-list { padding: 10px 10px; gap: 15px; }
+    .product-card { flex: 0 0 calc(50% - 7.5px); } 
+    .product-list-title { font-size: 30px; }
+}
+
+
+@media (max-width: 576px) {
+    .product-list { 
+        padding: 10px 15px; 
+        gap: 15px; 
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    
+    .product-card { 
+        flex: 0 0 100%; 
+        max-width: 320px; 
+        margin-bottom: 20px;
+    }
+
+    /* Alt alta sıralandığı için okları gizle */
+    .arrow { display: none; }
+    .carousel-wrap { padding: 0; }
+    .product-list-title { font-size: 30px; }
+}
